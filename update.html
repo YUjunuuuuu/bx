@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理员修改密码</title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var text1;
+            $("#pwd2").blur(function() {
+                if(document.getElementById('pwd1').value!=document.getElementById('pwd2').value){
+                    if(!text1) {
+                        text1 = " <div class=\"form-group\" id=\"pwd5\">\n" +
+                            "            <label for=\"inputPassword3\" class=\"col-sm-2 control-label\"></label>\n" +
+                            "            <div class=\"col-sm-10 bt\">\n" +
+                            "                两次输入的密码不一致\n" +
+                            "            </div>\n" +
+                            "        </div>";
+                        $("#pw8").append(text1);
+                    }
+
+                }
+                else
+                    $("#pwd5").remove();
+            });
+        });
+    </script>
+    <style type="text/css">
+        .bt{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="col-sm-9  col-md-10  main">
+    <form class="form-horizontal" method="post" action="update.php">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">新密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="pwd1" placeholder="新密码" name="password1">
+            </div>
+        </div>
+        <div class="form-group" id="pw8">
+            <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="pwd2" placeholder="确认密码" name="password2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">提交</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>
